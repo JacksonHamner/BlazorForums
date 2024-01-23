@@ -1,0 +1,34 @@
+﻿@page "/forums"
+@inject IForumService ForumService
+
+<h3>ForumsList</h3>
+
+@if (forums == null)
+{
+    <span>Loading...</span>
+}
+else if (forums.Count() == 0)
+{
+    <span>No Forums Found</span>
+}
+else
+{
+    <table>
+
+    </table>
+    <ul>
+        @foreach (var forum in forums)
+        {
+            <li>@forum.Title</li>
+        }
+    </ul>
+}
+
+@code {
+    IEnumerable<Forum> forums = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forums = await ForumService.GetAsync();
+    }
+}
