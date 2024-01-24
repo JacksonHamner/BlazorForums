@@ -2,10 +2,11 @@ using BlazorForums.Components;
 using BlazorForums.Components.Account;
 using BlazorForums.Data;
 using BlazorForums.Data.Entities;
-using BlazorForums.Services.ForumService;
+using BlazorForums.Services.ForumServices;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 builder.Services.AddScoped<IForumService, ForumService>();
 
+
+builder.Services.AddAutoMapper(Assembly.Load("BlazorForums.Services"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

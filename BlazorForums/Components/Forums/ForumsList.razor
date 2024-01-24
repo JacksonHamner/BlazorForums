@@ -1,4 +1,5 @@
 ﻿@page "/forums"
+@using BlazorForums.Services.ForumServices.Models
 @inject IForumService ForumService
 
 <h3>ForumsList</h3>
@@ -25,7 +26,7 @@ else
 }
 
 @code {
-    IEnumerable<Forum> forums = null;
+    IEnumerable<ForumClientModel> forums = null;
 
     protected override async Task OnInitializedAsync()
     {

@@ -1,4 +1,4 @@
-﻿namespace BlazorForums.Services.ForumService.Models
+﻿namespace BlazorForums.Services.ForumServices.Models
 {
     public class ForumClientModel
     {
