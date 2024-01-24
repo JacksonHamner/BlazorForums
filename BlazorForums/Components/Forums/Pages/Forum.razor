@@ -1,0 +1,73 @@
+﻿@page "/forum/{forumId}"
+@using BlazorForums.Services.PostServices
+@using BlazorForums.Services.PostServices.Models
+
+@inject IForumService ForumService
+@inject IPostService PostService
+
+@if(forum == null)
+{
+    <span>Loading...</span>
+}
+else
+{
+    <h1>@forum.Title</h1>
+    <h3>@forum.Description</h3>
+
+    if(posts == null)
+    {
+        <span>Loading...</span>
+    }
+    else if(posts.Count() == 0)
+    {
+        <span>There are no posts yet!</span>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Created By</th>
+                    <th scope="col">Created On</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var post in posts)
+                {
+                    <tr>
+                        <td>@post.Title</td>
+                        <td>@post.UserName</td>
+                        <td>@post.Created</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+}
+
+@code {
+    [Parameter]
+    public string? ForumId { get; set; }
+
+    IEnumerable<PostClientModel> posts = null;
+    ForumClientModel forum = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var id = int.Parse(ForumId);
+            forum = await ForumService.GetByIdAsync(id);
+            posts = await PostService.GetAsync(id);
+            posts = posts.OrderByDescending(post => post.Created);
+        }
+        catch(Exception e)
+        {
+            throw e;
+        }
+
+    }
+}

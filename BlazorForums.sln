@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorForums", "BlazorForums\BlazorForums.csproj", "{C1545384-5B04-48EF-B6A0-DC5FC6C7286A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorForums.Services", "BlazorForums.Services\BlazorForums.Services.csproj", "{72D558A4-4148-41E2-AA7E-DCCB26071F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorForums.Services", "BlazorForums.Services\BlazorForums.Services.csproj", "{72D558A4-4148-41E2-AA7E-DCCB26071F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorForums.Data", "BlazorForums.Data\BlazorForums.Data.csproj", "{F8DCAD73-CC6A-4AC8-987F-18DAF584A8F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorForums.Data", "BlazorForums.Data\BlazorForums.Data.csproj", "{F8DCAD73-CC6A-4AC8-987F-18DAF584A8F9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{362737D3-B038-4992-A7E4-D364438A4B1D}"
 EndProject

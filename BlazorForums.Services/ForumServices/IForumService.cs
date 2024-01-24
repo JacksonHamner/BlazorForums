@@ -6,5 +6,6 @@ namespace BlazorForums.Services.ForumServices
     public interface IForumService
     {
         Task<IEnumerable<ForumClientModel>> GetAsync();
+        Task<ForumClientModel> GetByIdAsync(int forumId);
     }
 }

@@ -3,6 +3,7 @@ using BlazorForums.Components.Account;
 using BlazorForums.Data;
 using BlazorForums.Data.Entities;
 using BlazorForums.Services.ForumServices;
+using BlazorForums.Services.PostServices;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +40,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 builder.Services.AddScoped<IForumService, ForumService>();
+
+builder.Services.AddScoped<IPostService, PostService>();
 
 
 builder.Services.AddAutoMapper(Assembly.Load("BlazorForums.Services"));

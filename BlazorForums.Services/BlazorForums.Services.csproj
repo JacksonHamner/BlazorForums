@@ -14,4 +14,9 @@
     <ProjectReference Include="..\BlazorForums.Data\BlazorForums.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UserServices\" />
+    <Folder Include="ReplyServices\" />
+  </ItemGroup>
+
 </Project>

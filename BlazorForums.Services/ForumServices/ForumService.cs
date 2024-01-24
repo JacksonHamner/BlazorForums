@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BlazorForums.Data;
-using BlazorForums.Data.Entities;
 using BlazorForums.Services.ForumServices.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +17,14 @@ namespace BlazorForums.Services.ForumServices
             return await DataContext.Forums
                 .Select(x => Mapper.Map<ForumClientModel>(x))
                 .ToListAsync();
+        }
+
+
+        public async Task<ForumClientModel> GetByIdAsync(int forumId)
+        {
+            var forum = await DataContext.Forums
+                .SingleOrDefaultAsync(x => x.Id == forumId) ?? throw new KeyNotFoundException();
+            return Mapper.Map<ForumClientModel>(forum);
         }
 
     }

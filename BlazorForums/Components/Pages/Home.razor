@@ -3,34 +3,13 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Blazor Forums</h1>
+<hr/>
+Welcome to The Blazor Forums! A friendly community of Blazor enthusiasts discussing all things .NET
+<br/>
 
-Welcome to your new app.
-@* <hr/>
-
-@if(forums == null)
-{
-    <span>Loading...</span>
-}
-else if(forums.Count() == 0)
-{
-    <span>No Forums Found</span>
-}
-else
-{
-    <ul>
-        @foreach (var forum in forums)
-        {
-            <li>@forum.Title</li>
-        }
-    </ul>
-}
- *@
+<img width="512" alt="Blazor" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Blazor.png/512px-Blazor.png">
 @code {
-    // IEnumerable<Forum> forums = null;
 
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     forums = await ForumService.GetAsync();
-    // }
+
 }
