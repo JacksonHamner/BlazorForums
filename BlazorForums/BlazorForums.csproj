@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BlazorForums.Data\BlazorForums.Data.csproj" />
     <ProjectReference Include="..\BlazorForums.Services\BlazorForums.Services.csproj" />
   </ItemGroup>

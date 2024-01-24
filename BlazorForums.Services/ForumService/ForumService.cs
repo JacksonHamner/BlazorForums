@@ -4,17 +4,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlazorForums.Services.ForumService
 {
-    public class ForumService : IForumService
+    public class ForumService : BaseService<ApplicationDbContext>, IForumService
     {
-        private readonly ApplicationDbContext context;
+
         public ForumService(ApplicationDbContext context)
-        {
-            this.context = context;
-        }
+            : base(context) { }
+
 
         public async Task<IEnumerable<Forum>> GetAsync()
         {
-            return await context.Forums.ToListAsync();
+            return await this.DataContext.Forums.ToListAsync();
         }
+
     }
 }

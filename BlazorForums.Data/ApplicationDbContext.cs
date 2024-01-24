@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlazorForums.Data
 {
-    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
-        : IdentityDbContext<ApplicationUser>(options)
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : IdentityDbContext<ApplicationUser>(options), IApplicationDbContext
     {
         public DbSet<Forum> Forums { get; set; }
         public DbSet<Post> Posts { get; set; }
