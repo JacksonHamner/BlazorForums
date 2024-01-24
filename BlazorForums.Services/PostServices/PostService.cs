@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BlazorForums.Data;
-using BlazorForums.Services.ForumServices.Models;
 using BlazorForums.Services.PostServices.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,12 +12,12 @@ namespace BlazorForums.Services.PostServices
             : base(context, mapper) { }
 
 
-        public async Task<IEnumerable<PostClientModel>> GetAsync(int ForumId)
+        public async Task<IEnumerable<PostClientModel>> GetAsync(int forumId)
         {
             var posts = await DataContext.Posts
                 .Include(post => post.Forum)
                 .Include(post => post.User)
-                .Where(post => post.Forum.Id == ForumId)
+                .Where(post => post.Forum.Id == forumId)
                 .ToListAsync();
 
             return Mapper.Map<IEnumerable<PostClientModel>>(posts);
@@ -26,11 +25,12 @@ namespace BlazorForums.Services.PostServices
 
         public async Task<PostClientModel> GetByIdAsync(int postId)
         {
-            return await DataContext.Posts
+            var post = await DataContext.Posts
                 .Include(post => post.Forum)
                 .Include(post => post.User)
-                .Select(post => Mapper.Map<PostClientModel>(post))
                 .SingleOrDefaultAsync(post => post.Id == postId) ?? throw new KeyNotFoundException();
+
+            return Mapper.Map<PostClientModel>(post);
         }
 
     }

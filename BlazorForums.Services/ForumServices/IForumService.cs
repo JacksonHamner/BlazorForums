@@ -1,5 +1,4 @@
-﻿using BlazorForums.Data.Entities;
-using BlazorForums.Services.ForumServices.Models;
+﻿using BlazorForums.Services.ForumServices.Models;
 
 namespace BlazorForums.Services.ForumServices
 {
