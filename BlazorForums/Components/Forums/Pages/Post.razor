@@ -1,0 +1,60 @@
+﻿@page "/post/{postId}"
+
+@inject IReplyService ReplyService
+@inject IPostService PostService
+
+@if(post == null)
+{
+    <span>Loading...</span>
+}
+else
+{
+    <h3>@post.Title</h3>
+    <div class="message-area">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>@post.UserName</td>
+                    <td>@post.Content</td>
+                </tr>
+                @foreach (var reply in replies)
+                {
+                    <tr>
+                        <td>@reply.UserName</td>
+                        <td>@reply.Content</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <textarea id="replyContent" class="form-control"></textarea>
+    <input type="submit" class="btn btn-light" />
+}
+
+
+
+
+@code {
+    [Parameter]
+    public string? PostId { get; set; }
+
+    IEnumerable<ReplyClientModel> replies = null;
+    PostClientModel post = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var id = int.Parse(PostId);
+            post = await PostService.GetByIdAsync(id);
+            replies = await ReplyService.GetAsync(id);
+            replies = replies.OrderBy(post => post.Created);
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+
+    }
+}
