@@ -12,6 +12,7 @@ namespace BlazorForums.Services.PostServices
             : base(context, mapper) { }
 
 
+
         public async Task<IEnumerable<PostClientModel>> GetAsync(int forumId)
         {
             var posts = await DataContext.Posts
@@ -32,6 +33,23 @@ namespace BlazorForums.Services.PostServices
 
             return Mapper.Map<PostClientModel>(post);
         }
+        
+        public Task<PostClientModel> Create(int forumId, string userId, string title, string content)
+        {
+            throw new NotImplementedException();
+        }
 
+        public Task<PostClientModel> Update(int forumId, int postId, string title, string content)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Delete(int postId)
+        {
+            //delete all replies
+
+            //delete post
+            throw new NotImplementedException();
+        }
     }
 }

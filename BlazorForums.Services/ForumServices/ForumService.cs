@@ -11,6 +11,16 @@ namespace BlazorForums.Services.ForumServices
         public ForumService(ApplicationDbContext context, IMapper mapper)
             : base(context, mapper) { }
 
+        public Task<ForumClientModel> Create(string Title, string Description, int Order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Delete(int forumId)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<ForumClientModel>> GetAsync()
         {
             return await DataContext.Forums
@@ -25,5 +35,9 @@ namespace BlazorForums.Services.ForumServices
             return Mapper.Map<ForumClientModel>(forum);
         }
 
+        public Task<ForumClientModel> Update(int forumId, string Title, string Description, int Order)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

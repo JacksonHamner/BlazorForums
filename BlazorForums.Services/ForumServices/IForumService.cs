@@ -6,5 +6,9 @@ namespace BlazorForums.Services.ForumServices
     {
         Task<IEnumerable<ForumClientModel>> GetAsync();
         Task<ForumClientModel> GetByIdAsync(int forumId);
+        Task<ForumClientModel> Create(string Title, string Description, int Order);
+        Task<ForumClientModel> Update(int forumId, string Title, string Description, int Order);
+        Task Delete(int forumId);
+
     }
 }
